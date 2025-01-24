@@ -1,17 +1,22 @@
 "use client"
-import { useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
+import { LoginLink, useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
 
 
 const Profile = () => {
   
-  const { user, isAuthenticated, login } = useKindeAuth();
-  console.log(user);
+  const { user, isAuthenticated } = useKindeAuth();
 
   if(!isAuthenticated) {
-    return <div>
-      <h3>You are not logged in!</h3>
-      <button onClick={login} className="btn">Log in</button>
-    </div>
+    return (
+      <section className="flex justify-center text-center">
+        <div className="space-y-3 border border-green-500 p-4 rounded-md">
+          <h3>You are not logged in!</h3>
+          <LoginLink className="btn">
+            Log in
+          </LoginLink>
+        </div>
+      </section>
+    );
   }
 
   return (

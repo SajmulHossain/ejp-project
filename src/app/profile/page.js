@@ -1,10 +1,11 @@
+import Profile from "./Profile";
 
 
 const page = () => {
   return (
-    <div>
-      profile 1
-    </div>
+    <>
+      <Profile />
+    </>
   );
 };
 

@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
-import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs";
+import { LoginLink, RegisterLink, useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
 
 const Header = () => {
+  const {isAuthenticated, logout} = useKindeAuth();
   const links = (
     <>
       <li>
@@ -47,8 +48,16 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         <div className="join">
-          <LoginLink className="btn join-item">Sign In</LoginLink>
-          <RegisterLink className="btn join-item">Sign Up</RegisterLink>
+          <>
+            {isAuthenticated ? (
+              <button onClick={logout} className="btn">Log Out</button>
+            ) : (
+              <>
+                <LoginLink className="btn join-item">Sign In</LoginLink>
+                <RegisterLink className="btn join-item">Sign Up</RegisterLink>
+              </>
+            )}
+          </>
         </div>
       </div>
     </header>

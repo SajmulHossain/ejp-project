@@ -18,7 +18,7 @@ const Blogs = () => {
           <h3 className="font-semibold text-lg">{blog?.title}</h3>
           <p>{blog?.body}</p>
           <Link className="btn mt-2 btn-success" href={`/blog/${blog?.id}`}>
-            View Details
+            View Detail
           </Link>
         </div>
       ))}

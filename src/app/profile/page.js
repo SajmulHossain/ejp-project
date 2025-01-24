@@ -3,7 +3,7 @@
 const page = () => {
   return (
     <div>
-      profile
+      profile 1
     </div>
   );
 };
